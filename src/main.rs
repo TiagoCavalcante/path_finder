@@ -20,6 +20,6 @@ fn main() {
     &mut vertices,
     start,
     end,
-    &vec![start],
+    &mut vec![start],
   );
 }

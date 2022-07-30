@@ -3,15 +3,14 @@ pub fn find_paths(
   remaining_vertices: &Vec<usize>,
   start: usize,
   end: usize,
-  path: &Vec<usize>,
+  path: &mut Vec<usize>,
 ) {
   for (i, vertex) in remaining_vertices.iter().enumerate() {
     if matrix[start][*vertex] == 1 {
-      let mut new_path = path.clone();
-      new_path.push(*vertex);
+      path.push(*vertex);
 
       if *vertex == end {
-        println!("{:?}", new_path);
+        println!("{:?}", path);
       } else {
         let mut remaining_vertices =
           remaining_vertices.clone();
@@ -22,9 +21,11 @@ pub fn find_paths(
           &remaining_vertices,
           *vertex,
           end,
-          &new_path,
+          path,
         );
       }
+
+      path.pop();
     }
   }
 }
