@@ -8,12 +8,18 @@ fn main() {
 
   let matrix = io::read_matrix();
 
-  let mut vertices = std::collections::LinkedList::new();
+  let mut vertices = vec![];
   for i in 0..matrix.len() {
     if i != start {
-      vertices.push_back(i);
+      vertices.push(i);
     }
   }
 
-  path::find_paths(&matrix, &mut vertices, start, end, &vec![start]);
+  path::find_paths(
+    &matrix,
+    &mut vertices,
+    start,
+    end,
+    &vec![start],
+  );
 }

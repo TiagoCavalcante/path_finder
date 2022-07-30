@@ -1,6 +1,6 @@
 pub fn find_paths(
   matrix: &Vec<Vec<usize>>,
-  remaining_vertices: &std::collections::LinkedList<usize>,
+  remaining_vertices: &Vec<usize>,
   start: usize,
   end: usize,
   path: &Vec<usize>,
@@ -13,10 +13,17 @@ pub fn find_paths(
       if *vertex == end {
         println!("{:?}", new_path);
       } else {
-        let mut remaining_vertices = remaining_vertices.clone();
-        remaining_vertices.remove(i);
+        let mut remaining_vertices =
+          remaining_vertices.clone();
+        remaining_vertices.swap_remove(i);
 
-        find_paths(matrix, &remaining_vertices, *vertex, end, &new_path);
+        find_paths(
+          matrix,
+          &remaining_vertices,
+          *vertex,
+          end,
+          &new_path,
+        );
       }
     }
   }
