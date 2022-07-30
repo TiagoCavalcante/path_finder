@@ -1,28 +1,37 @@
 pub fn find_paths(
   matrix: &Vec<Vec<usize>>,
-  remaining_vertices: &Vec<usize>,
+  remaining_vertices: &mut Vec<usize>,
   start: usize,
   end: usize,
   path: &mut Vec<usize>,
 ) {
-  for (i, vertex) in remaining_vertices.iter().enumerate() {
-    if matrix[start][*vertex] == 1 {
-      path.push(*vertex);
+  // Subtract 1 here so we don't need to do it inside the loop.
+  let last = remaining_vertices.len() - 1;
 
-      if *vertex == end {
+  for i in 0..=last {
+    let vertex = remaining_vertices[i];
+
+    if matrix[start][vertex] == 1 {
+      path.push(vertex);
+
+      if vertex == end {
         println!("{:?}", path);
       } else {
-        let mut remaining_vertices =
-          remaining_vertices.clone();
+        // Swap the current element with the last and
+        // decrement the length.
         remaining_vertices.swap_remove(i);
 
         find_paths(
           matrix,
-          &remaining_vertices,
-          *vertex,
+          remaining_vertices,
+          vertex,
           end,
           path,
         );
+
+        // Revert our changes.
+        remaining_vertices.push(vertex);
+        remaining_vertices.swap(i, last);
       }
 
       path.pop();
