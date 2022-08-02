@@ -8,12 +8,8 @@ fn main() {
 
   let matrix = io::read_matrix();
 
-  let mut vertices = vec![];
-  for i in 0..matrix.len() {
-    if i != start {
-      vertices.push(i);
-    }
-  }
+  let mut vertices =
+    (0..matrix.len()).filter(|i| *i != start).collect();
 
   path::find_paths(
     &matrix,
