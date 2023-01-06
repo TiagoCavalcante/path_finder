@@ -1,5 +1,3 @@
-#![feature(linked_list_remove)]
-
 mod io;
 mod path;
 

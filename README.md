@@ -14,7 +14,7 @@ The graph is represented as a symmetrical square matrix with zeros for unconnect
 
 For example, the following graph
 
-![3-vertice graph](https://user-images.githubusercontent.com/62714153/181908761-53dcf94a-a474-4bfe-b64f-8fe9d01f16c4.png)
+![3-vertex graph](https://user-images.githubusercontent.com/62714153/181908761-53dcf94a-a474-4bfe-b64f-8fe9d01f16c4.png)
 
 Is going to be represented with the following matrix:
 $$\LARGE{\begin{bmatrix} 0 & 1 & 0 \\\ 1 & 0 & 1 \\\ 0 & 1 & 0 \end{bmatrix}}$$
