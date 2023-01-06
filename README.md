@@ -2,10 +2,10 @@
 
 Find non-looping paths in a graph
 
-## How to compile?
+## How to install?
 
 ```sh
-cargo build --release
+cargo install path_finder
 ```
 
 ## How to use?
@@ -28,7 +28,7 @@ The output are all the paths from the start to the end vertex that don't repeat 
 For example, for discovering the paths from vertex $0$ to vertex $2$ you would execute:
 
 ```sh
-./target/release/path_finder
+path_finder
 0 2
 0 1 0
 1 0 1
@@ -51,7 +51,7 @@ time echo "0 9
 1 1 1 1 1 1 0 1 1 1
 1 1 1 1 1 1 1 0 1 1
 1 1 1 1 1 1 1 1 0 1
-1 1 1 1 1 1 1 1 1 0" | ./target/release/path_finder
+1 1 1 1 1 1 1 1 1 0" | path_finder
 [0, 1, 9]
 [0, 1, 2, 9]
 [0, 1, 2, 8, 9]
